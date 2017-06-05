@@ -1,6 +1,53 @@
-# Change Log
+# Changelog
 
 All notable changes to `lua-resty-session` will be documented in this file.
+
+## [2.16] - 2017-05-31
+### Changed
+- Delays setting the defaults until needed, allowing users to safely
+  require "resty.session" in different contexts.
+
+## [2.15] - 2017-02-13
+
+## Added
+- Added a support for chunked cookies.
+  See also: https://github.com/bungle/lua-resty-session/issues/35
+  Thanks @zandbelt
+
+## [2.14] - 2016-12-16
+### Fixed
+- Lua code configuration parsing corrections (especially on boolean
+  options).
+
+## Added
+- Added a more natural way to pass config arguments to storage
+  adapters and ciphers in Lua code.
+  See also: https://github.com/bungle/lua-resty-session/issues/34
+  Thanks @hanxi
+
+## [2.13] - 2016-11-21
+### Changed
+- On start we do send cookie now also if the settings have changed
+  and the cookie expiry time needs to be reduced.
+
+### Fixed
+- Memcache storage adapter had a missing ngx.null.
+
+## [2.12] - 2016-11-21
+### Added
+- Implemented pluggable session identifier generators.
+- Implemented random session idenfier generator.
+
+### Changed
+- Now checks if headers were already sent before trying to set the
+  cookie headers.
+- SSL session identifier is not checked by default anymore.
+- Lua session.identifier.length changed to session.random.length.
+- Nginx $session_identifier_length changed to $session_random_length.
+
+## [2.11] - 2016-09-30
+### Changed
+- Just another OPM release to correct the name.
 
 ## [2.10] - 2016-09-29
 ### Added
